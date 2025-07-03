@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import TrafficLight from './TrafficLight';
 
 function App() {
+  const [activeLight, setActiveLight] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Traffic Light System</h1>
+      <TrafficLight activeLight={activeLight} />
+      <div className="controls">
+        <button onClick={() => setActiveLight('red')}>Red</button>
+        <button onClick={() => setActiveLight('yellow')}>Yellow</button>
+        <button onClick={() => setActiveLight('green')}>Green</button>
+      </div>
     </div>
   );
 }
